@@ -128,15 +128,6 @@
   </div>
 
   <script>
-    let urlServer = 'https://app.tap-id.tech';
-    let envirnment = 'prod';
-    if (location.search.indexOf('environment') !== -1) {
-      envirnment = location.search.split('environment=')[1];
-      if (envirnment === 'dev') {
-        urlServer = 'https://dev.tap-id.tech';
-      }
-    }
-
     function closeModal() {
       $("._modal").removeClass('open');
     }
@@ -159,13 +150,10 @@
   </script>
 
 
-
-
-
   <script>
     let sdkTapId = new tapId.default("123435465");
     sdkTapId.getResult().then((data) => {
-      console.log('data', data);
+      window.location.href = `/callback.html?token=" + {{data.data.token}}/&userid="{{data.userid}}"`;
     });
   </script>
 

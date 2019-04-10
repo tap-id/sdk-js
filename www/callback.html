@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Euronovate Bank</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="onload();" class="callback-body">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" id="brand" src="euronovate-bank.png">
+        </a>
+      </div>
+  </nav>
+  <div id="login" class="callback-container">
+    <h3 class="text-center text-white pt-5">Shared identity with Euronovate Bank</h3>
+  </div>
+  <script>
+    let url = 'https://apidev.tap-id.tech';
+
+    function onload() {
+      let token = window.location.search.split('token=')[1];
+      token = token.search.split('&userid')[0];
+      let userid = window.location.search.split('userid=')[1];
+      jQuery.get(`${url}/api/demo/provider/endpoint/{{userid}}?token=` + token, function (data) {
+        console.log(data);
+        $("#login").append(
+          `
+        <div class="identify">       
+          <div class="photo">
+            <img src="${url}/${data.selfieFile}?token=${token}" />
+          </div>
+          <p>Hash-id: ${data.hashId}</p>
+          <p>Name : ${data.firstname}</p>
+          <p>Surname : ${data.lastname}</p>
+          <p>Gender: ${data.gender}</p>
+          <p>Birthdate : ${new Date(parseInt(data.birthdate)).toLocaleDateString("it-IT")}</p>
+          <p>State born: ${data.stateBorn}</p>
+          <p>City born: ${data.cityBorn}</p>
+          <p>Citizenship: ${data.citizenship}</p>
+          <p>Email: ${data.email}</p>
+        </div>
+        `
+        );
+      });
+    }
+  </script>
+
+</body>
+
+</html>
