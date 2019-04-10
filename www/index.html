@@ -165,8 +165,7 @@
   <script>
     let sdkTapId = new tapId.default("123435465");
     sdkTapId.getResult().then((data) => {
-      alert(JSON.stringify(data));
-      window.location.href = "callback.html?token=" + data.token + '&environment=' + envirnment;
+      console.log('data', data);
     });
   </script>
 
