@@ -1,0 +1,308 @@
+body {
+  color: #ffbc00;
+  height: 100vh;
+}
+
+.demo-banner {
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 1.5em;
+}
+
+.demo-banner a {
+  color: #ebebeb;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #000;
+  border-radius: 0;
+  min-height: 40px;
+}
+
+.navbar-default {
+  border: 0;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav>.open>a {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+.navbar-default .navbar-nav>.open>a>#dropdown-arrow {
+  color: #ccc !important;
+}
+
+.navbar-brand {
+  height: 90px;
+  align-items: center;
+  display: flex;
+}
+
+.navbar-collapse.in {
+  overflow-y: visible;
+}
+
+.navbar-right {
+  height: 40px;
+}
+
+.navbar-right .dropdown a {
+  height: 100%;
+  align-content: center;
+  align-self: center;
+  padding: 10px 40px;
+}
+
+.dropdown {
+  position: relative;
+  height: 100%;
+  font-weight: 500;
+}
+
+.dropdown.open {
+  z-index: 2;
+}
+
+.dropdown-menu {
+  background-color: #444 !important;
+  border-top: 0;
+  border-right: 0;
+  padding: 20px;
+}
+
+#dropdown-arrow {
+  color: #0091c8;
+}
+
+.brand-header {
+  width: 100%;
+  height: 90px;
+}
+
+.brand-header div {
+  display: block;
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.brand-header span {
+  border-right: 1px solid #ededed;
+  padding: 0 25px;
+  font-size: 1.2em;
+  color: #4a4a4a
+}
+
+.brand-header span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#brand {
+  height: 60px;
+}
+
+#login,
+#register {
+  min-width: 25em;
+}
+
+.text-info {
+  color: #ccc !important;
+}
+
+.btn-tapid {
+  border-radius: 0px;
+  outline: none;
+  width: 100%;
+  height: 38px;
+  position: relative;
+  margin-top: 12px;
+  color: white;
+  padding: 6px;
+  background: #00a6b6;
+}
+
+.btn-tapid:after {
+  content: url(btn_tap.png);
+  position: absolute;
+  right: 18px;
+  top: 10px;
+}
+
+.btn-tapid:hover {
+  color: white;
+  opacity: 0.7;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+._modal {
+  margin: 0 auto;
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+.callback-container {
+  padding: 20px;
+  color: #ccc;
+  background-color: #444;
+}
+
+.callback-body {
+  background-color: #444;
+}
+
+.callback-container h3 {
+  margin-top: 0px;
+}
+
+.carousel-img {
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  height: calc(100% - 130px);
+}
+
+
+@media (max-width: 1024px) {
+
+  .navbar-collapse {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  ._modal {
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-img {
+    display: flex;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 980px) {
+  .brand-header {
+    display: none;
+  }
+
+  #brand {
+    height: 40px;
+  }
+}
+
+@media (min-width: 980px) {
+  #navbar-top-brand {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  ._modal {
+    width: 80%;
+    height: 90%;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+  }
+}
+
+.modalclose {
+  position: absolute;
+  right: 20px;
+  top: 4px;
+  background: #6f6f6f;
+  text-align: center;
+  width: 26px;
+  line-height: 10px;
+  color: white;
+  font-weight: 800;
+  height: 26px;
+  padding: 4px;
+  z-index: 9999;
+  border: 1px solid #c7c2c2;
+  font-size: 16px;
+}
+
+.open {
+  display: block;
+}
+
+.photo {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.photo img {
+  width: 100%;
+}
+
+.identify {
+  width: 98%;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 12px;
+}
+
+.modalContainer {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+iframe>html>body {
+  background: #385e74;
+}
+
+.banner {
+  background: url('trading.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.banner_2 {
+  background: url('trading_2.png');
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.registration-group {
+  margin-bottom: 0;
+}

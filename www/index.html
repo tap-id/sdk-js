@@ -1,0 +1,177 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Euronovate Bank</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script charset="utf-8" src="dist/sdk.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <!-- Slick carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" id="navbar-top-brand" href="#">
+          <img alt="Brand" id="brand" src="euronovate-bank.png">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">Login
+              <span id="dropdown-arrow" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div id="login">
+                  <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-12">
+                      <div class="login-box col-md-12">
+                        <form id="login-form" class="form" method="post">
+                          <div class="form-group">
+                            <label for="username" class="text-info">Username:</label><br>
+                            <input type="text" name="username" id="username" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" name="password" id="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-info btn-block" value="Submit">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">Register
+              <span id="dropdown-arrow" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div id="register">
+                  <div id="register-row" class="row justify-content-center align-items-center">
+                    <div id="register-column" class="col-md-12">
+                      <div class="register-box col-md-12">
+                        <div class="form-group registration-group">
+                          <button class="btn btn-info btn-block">Traditional KYC</button>
+                          <button class="btn btn-tapid">FAST KYC</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="brand-header hidden-sm-up">
+    <a class="navbar-brand" href="#">
+      <img alt="Brand" id="brand" src="euronovate-bank.png">
+    </a>
+    <div><span>Everyday banking</span></div>
+    <div><span>Borrowing</span></div>
+    <div><span>Investing</span></div>
+    <div><span>Insurance</span></div>
+    <div><span>Help</span></div>
+  </div>
+  <div class="carousel">
+    <div><img src="trading.jpg" class="img-responsive carousel-img"></div>
+  </div>
+
+  <div class="_modal">
+    <div class="modalContainer">
+      <div class="modalclose">x</div>
+      <iframe id="iframe_tapid" allow="geolocation; microphone; camera"></iframe>
+    </div>
+  </div>
+
+  <script>
+    let urlServer = 'https://app.tap-id.tech';
+    let envirnment = 'prod';
+    if (location.search.indexOf('environment') !== -1) {
+      envirnment = location.search.split('environment=')[1];
+      if (envirnment === 'dev') {
+        urlServer = 'https://dev.tap-id.tech';
+      }
+    }
+
+    function closeModal() {
+      $("._modal").removeClass('open');
+    }
+    $(".modalclose").click(function (e) {
+      closeModal();
+    });
+
+    $(".btn-tapid").click(function (e) {
+      e.preventDefault();
+      $("._modal").addClass('open');
+    });
+
+    $('.dropdown').on('show.bs.dropdown', function (e) {
+      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+    });
+
+    $('.dropdown').on('hide.bs.dropdown', function (e) {
+      $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    });
+  </script>
+
+
+
+
+
+  <script>
+    let sdkTapId = new tapId.default("123435465");
+    sdkTapId.getResult().then((data) => {
+      alert(JSON.stringify(data));
+      window.location.href = "callback.html?token=" + data.token + '&environment=' + envirnment;
+    });
+  </script>
+
+
+
+</body>
+
+</html>
