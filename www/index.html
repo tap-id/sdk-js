@@ -153,8 +153,7 @@
   <script>
     let sdkTapId = new tapId.default("12345");
     sdkTapId.getResult().then((data) => {
-      console.log('data', data);
-      window.location.href = `/callback.html?token=${data.data.token}/&userid=${data.userid}`;
+      window.location.href = `/callback.html?token=${data.data.token}&userid=${data.userid}`;
     });
   </script>
 

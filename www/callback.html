@@ -41,25 +41,25 @@
 
     function onload() {
       let token = window.location.search.split('token=')[1];
-      token = token.search.split('&userid')[0];
+      token = token.split('&userid')[0];
       let userid = window.location.search.split('userid=')[1];
-      jQuery.get(`${url}/api/demo/provider/endpoint/{{userid}}?token=` + token, function (data) {
+      jQuery.get(`${url}/api/demo/provider/endpoint/${userid}?token=` + token, function (data) {
         console.log(data);
         $("#login").append(
           `
         <div class="identify">       
           <div class="photo">
-            <img src="${url}/${data.selfieFile}?token=${token}" />
+            <img src="${url}/${data.data.selfieFile}?token=${token}" />
           </div>
-          <p>Hash-id: ${data.hashId}</p>
-          <p>Name : ${data.firstname}</p>
-          <p>Surname : ${data.lastname}</p>
-          <p>Gender: ${data.gender}</p>
-          <p>Birthdate : ${new Date(parseInt(data.birthdate)).toLocaleDateString("it-IT")}</p>
-          <p>State born: ${data.stateBorn}</p>
-          <p>City born: ${data.cityBorn}</p>
-          <p>Citizenship: ${data.citizenship}</p>
-          <p>Email: ${data.email}</p>
+          <p>Hash-id: ${data.data.hashId}</p>
+          <p>Name : ${data.data.firstname}</p>
+          <p>Surname : ${data.data.lastname}</p>
+          <p>Gender: ${data.data.gender}</p>
+          <p>Birthdate : ${new Date(parseInt(data.data.birthdate)).toLocaleDateString("it-IT")}</p>
+          <p>State born: ${data.data.stateBorn}</p>
+          <p>City born: ${data.data.cityBorn}</p>
+          <p>Citizenship: ${data.data.citizenship}</p>
+          <p>Email: ${data.data.email}</p>
         </div>
         `
         );
